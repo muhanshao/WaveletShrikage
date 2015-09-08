@@ -48,7 +48,7 @@ switch method
         for i = 1:3
             for j = 1:128
                 for k = 1:128
-                    tempT = Tb10(sigma,sigmax2m(j,k,i));
+                    tempT = Tb20(sigma,sigmax2m(j,k,i));
                     descale2m(j,k,i) = wthresh(scale2m(j,k,i),'s',tempT);
                 end
             end
@@ -56,7 +56,7 @@ switch method
         for i = 1:3
             for j = 1:64
                 for k = 1:64
-                    tempT = Tb05(sigma,sigmax3m(j,k,i));
+                    tempT = Tb10(sigma,sigmax3m(j,k,i));
                     descale3m(j,k,i) = wthresh(scale3m(j,k,i),'s',tempT);
                 end
             end

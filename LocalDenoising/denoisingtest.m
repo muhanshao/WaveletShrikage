@@ -7,7 +7,7 @@ image = imread('barb.bmp');
 image = im2double(image);
 
 %% Add noise
-sigmaabs = 30;
+sigmaabs = 20;
 sigmasquare = sigmaabs^2/(255^2);
 sigma = sqrt(sigmasquare);
 noisedimage = imnoise(image,'gaussian',0,sigmasquare);
@@ -30,10 +30,8 @@ PSNR2 = 10*log10(255^2/MSE2);
 %% Show image
 % figure;
 % imshow(image);  % imshow [0 1] grey
-% % print('-r600','-dpng','Mandrill-Original');
 % figure;
 % imshow(noisedimage);  
-% % print('-r600','-dpng','Mandrill-Addnoise');
 % figure;
 % imshow(denoisedimage);
 % % print('-r600','-dpng','Mandrill-Denoise1');

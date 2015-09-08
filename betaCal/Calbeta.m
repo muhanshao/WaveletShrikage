@@ -9,10 +9,14 @@ M = length(X);
 mux = sum(X)/M;
 sigmax2 = sum((X-mux).^2)/M;
 E2 = (sum(abs(X-mux))/M)^2;
-rhat = sigmax2/E2;
 
-dif = abs(r-rhat);
-i = find(dif==min(dif));
-betahat = beta(i);
+if E2 == 0
+    betahat = inf;
+else
+    rhat = sigmax2/E2;
+    dif = abs(r-rhat);
+    i = find(dif==min(dif));
+    betahat = beta(i);
+end
 
 end
