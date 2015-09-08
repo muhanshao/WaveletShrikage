@@ -11,19 +11,19 @@ scale3 = zeros(3,4096);
 
 for i = 1:3
     for j = 1:256
-        scale1(i,(j-1)*256+1:j*256) = scale1m(j,:,i);
+        scale1(i,(j-1)*256+1:j*256) = scale1m(:,j,i);
     end
 end
 
 for i = 1:3
     for j = 1:128
-        scale2(i,(j-1)*128+1:j*128) = scale2m(j,:,i);
+        scale2(i,(j-1)*128+1:j*128) = scale2m(:,j,i);
     end
 end
 
 for i = 1:3
     for j = 1:64
-        scale3(i,(j-1)*64+1:j*64) = scale3m(j,:,i);
+        scale3(i,(j-1)*64+1:j*64) = scale3m(:,j,i);
     end
 end
 

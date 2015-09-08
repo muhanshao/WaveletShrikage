@@ -67,11 +67,11 @@ for i = 1:3
                end
            else
                if k-windowsize<1
-                   tempx = scale1m(j-windowsize:j+windowsize,1:k+windowsize,i);
+                   tempx = scale2m(j-windowsize:j+windowsize,1:k+windowsize,i);
                elseif k+windowsize>128
-                   tempx = scale1m(j-windowsize:j+windowsize,k-windowsize:128,i);
+                   tempx = scale2m(j-windowsize:j+windowsize,k-windowsize:128,i);
                else
-                   tempx = scale1m(j-windowsize:j+windowsize,k-windowsize:k+windowsize,i);
+                   tempx = scale2m(j-windowsize:j+windowsize,k-windowsize:k+windowsize,i);
                end
            end
            sigmax2m(j,k,i) = Calsigmax(tempx);

@@ -40,7 +40,7 @@ switch method
         for i = 1:3
             for j = 1:256
                 for k = 1:256
-                    tempT = Tb10(sigma,sigmax1m(j,k,i));
+                    tempT = Tb20(sigma,sigmax1m(j,k,i));
                     descale1m(j,k,i) = wthresh(scale1m(j,k,i),'s',tempT);
                 end
             end

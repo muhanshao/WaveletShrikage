@@ -1,6 +1,7 @@
 clear;close all;clc;
 
-addpath('../.');
+addpath(genpath('../'));
+
 load('rtable.mat');
 image = imread('lena.bmp');
 image = im2double(image);
