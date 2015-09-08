@@ -1,6 +1,6 @@
 clear;clc;
 
-addpath('../BandDenoising');
+addpath(genpath('../'));
 
 load('rtable.mat');
 image = imread('lena.bmp');
