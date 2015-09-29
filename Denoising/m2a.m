@@ -1,5 +1,5 @@
 function [ image ] = m2a( scale1m, scale2m, scale3m, LL )
-%m2a Wavelet transform coefficients matrix to array
+%% m2a Wavelet transform coefficients matrix to array
 %   [ image ] = m2a( scale1m, scale2m, scale3m )
 %   scale1m, scale2m, scale3m are three dimensional matrix 
 %   "image" is the inverse transform result

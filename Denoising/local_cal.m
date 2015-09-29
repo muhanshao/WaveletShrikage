@@ -1,5 +1,5 @@
-function [ sigmax1m, sigmax2m, sigmax3m, beta1m, beta2m, beta3m ] = local_cal_thr( image,windowsize, thr, r,beta )
-%local_cal Calculating local sigmax and beta
+function [ sigmax1m, sigmax2m, sigmax3m, beta1m, beta2m, beta3m ] = local_cal( image,windowsize, r,beta )
+%% local_cal Calculating local sigmax and beta
 %   [ sigmax1m, sigmax2m, sigmax3m, beta1m, beta2m, beta3m ] = local_cal( image,windowsize, r,beta )
 %   sigmax1~3m are 3-D matrix containing every local sigmax.
 %   beta1~3m are 3-D matrix containing every local beta.
@@ -14,9 +14,6 @@ beta2m = zeros(128,128,3);
 beta3m = zeros(64,64,3);
 
 [ scale1m, scale2m, scale3m, LL ] = a2m( image );
-scale1m = scale1m.*(scale1m>thr(1));
-scale2m = scale2m.*(scale2m>thr(2));
-scale3m = scale3m.*(scale3m>thr(3));
 
 %% Calculate level 1
 for i = 1:3
@@ -134,5 +131,3 @@ N = length(x);
 sigmax = sqrt(sum(x.^2)/N);
 
 end
-
-

@@ -1,5 +1,5 @@
 function [ scale1m, scale2m, scale3m, LL ] = a2m( image )
-%a2m Wavelet transform coefficients array to matrix
+%% a2m Wavelet transform coefficients array to matrix
 %   [ scale1m, scale2m, scale3m ] = a2m( image )
 %   scale1m, scale2m, scale3m are three dimensional matrix 
 %   "image" is the input image to be transformed. 

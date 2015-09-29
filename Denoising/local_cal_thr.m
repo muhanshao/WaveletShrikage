@@ -1,14 +1,22 @@
-function [ sigmax1m, sigmax2m, sigmax3m ] = local_sigmax( image,windowsize )
-%local_sigmax Calculating local sigmax
-%   [ sigmax1m, sigmax2m, sigmax3m ] = local_cal( image,windowsize )
+function [ sigmax1m, sigmax2m, sigmax3m, beta1m, beta2m, beta3m ] = local_cal_thr( image,windowsize, thr, r,beta )
+%% local_cal Calculating local sigmax and beta
+%   [ sigmax1m, sigmax2m, sigmax3m, beta1m, beta2m, beta3m ] = local_cal( image,windowsize, r,beta )
 %   sigmax1~3m are 3-D matrix containing every local sigmax.
+%   beta1~3m are 3-D matrix containing every local beta.
 %   windowsize typically is 3 or 4.
+%   r and beta are lookup table.
 
 sigmax1m = zeros(256,256,3);
 sigmax2m = zeros(128,128,3);
 sigmax3m = zeros(64,64,3);
+beta1m = zeros(256,256,3);
+beta2m = zeros(128,128,3);
+beta3m = zeros(64,64,3);
 
 [ scale1m, scale2m, scale3m, LL ] = a2m( image );
+scale1m = scale1m.*(scale1m>thr(1));
+scale2m = scale2m.*(scale2m>thr(2));
+scale3m = scale3m.*(scale3m>thr(3));
 
 %% Calculate level 1
 for i = 1:3
@@ -40,6 +48,7 @@ for i = 1:3
                end
            end
            sigmax1m(j,k,i) = Calsigmax(tempx);
+           beta1m(j,k,i) = Calbeta(tempx,r,beta);
         end
     end
 end
@@ -75,6 +84,7 @@ for i = 1:3
                end
            end
            sigmax2m(j,k,i) = Calsigmax(tempx);
+           beta2m(j,k,i) = Calbeta(tempx,r,beta);
         end
     end
 end
@@ -109,6 +119,7 @@ for i = 1:3
                end
            end
            sigmax3m(j,k,i) = Calsigmax(tempx);
+           beta3m(j,k,i) = Calbeta(tempx,r,beta);
         end
     end
 end

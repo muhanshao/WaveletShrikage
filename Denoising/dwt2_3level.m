@@ -1,5 +1,5 @@
 function [ scale1, scale2, scale3 ] = dwt2_3level( image )
-%dwt2_3level  3 level 2-D wavelet decomposition
+%% dwt2_3level  3 level 2-D wavelet decomposition
 %   [scale1,scale2,scale3] = dwt2_3level(image).
 %   Image matrix should be 512*512.
 %   Wavelet type is 'haar'.
